@@ -13,7 +13,9 @@ jobs:
             pip install awscli==1.14.37
 
             eval $(aws ecr get-login --region eu-west-2 --no-include-email)
+            TAG="${CIRCLE_BUILD_NUM}"
 
             docker build -t vote .
+            docker tag vote:latest 122275815213.dkr.ecr.eu-west-2.amazonaws.com/vote:$TAG
             docker tag vote:latest 122275815213.dkr.ecr.eu-west-2.amazonaws.com/vote:latest
             docker push 122275815213.dkr.ecr.eu-west-2.amazonaws.com/vote:latest
