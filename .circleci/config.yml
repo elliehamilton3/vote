@@ -15,5 +15,5 @@ jobs:
             eval $(aws ecr get-login --region eu-west-2 --no-include-email)
 
             docker build -t vote .
-            docker tag result:latest 122275815213.dkr.ecr.eu-west-2.amazonaws.com/vote:latest
+            docker tag vote:latest 122275815213.dkr.ecr.eu-west-2.amazonaws.com/vote:latest
             docker push 122275815213.dkr.ecr.eu-west-2.amazonaws.com/vote:latest
